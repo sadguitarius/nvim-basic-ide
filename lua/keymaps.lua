@@ -111,10 +111,6 @@ keymap("n", "<Leader>d", ":cd %:h<CR>", opts)
 -- keymap("n", "<leader>th", "<cmd>ToggleTerm size=10 direction=horizontal<cr>", opts)
 -- keymap("n", "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<cr>", opts)
 
--- easy-align
-keymap("x", "ga", [[<Plug>(EasyAlign)]], {})
-keymap("n", "ga", [[<Plug>(EasyAlign)]], {})
-
 -- Edit Config
 keymap("n", "<leader>,", "<cmd>e $MYVIMRC <CR>", opts)
 
@@ -123,11 +119,3 @@ keymap("n", "<leader>Ss", "<cmd>SCNvimStart<cr>", opts)
 keymap("n", "<leader>SS", "<cmd>SCNvimStop<cr>", opts)
 keymap("n", "<leader>Sc", "<cmd>SCNvimRecompile<cr>", opts)
 keymap("n", "<leader>St", "<cmd>SCNvimTags<cr>", opts)
-
---nvim-osc52
-local status_ok, osc52 = pcall(require, "osc52")
-if status_ok then
-	vim.keymap.set("n", "<leader>c", require("osc52").copy_operator, { expr = true })
-	vim.keymap.set("n", "<leader>cc", "<leader>c_", { remap = true })
-	vim.keymap.set("x", "<leader>c", require("osc52").copy_visual)
-end

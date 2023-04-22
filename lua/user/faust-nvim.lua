@@ -1,6 +1,16 @@
 local M = {
   "madskjeldgaard/faust-nvim",
   event = "VimEnter",
+	dependencies = {
+    {
+	    "vijaymarupudi/nvim-fzf",
+      lazy=true
+    },
+    {
+	    "L3MON4D3/LuaSnip",
+      lazy=true
+    }
+	}
 }
 
 function M.config()
