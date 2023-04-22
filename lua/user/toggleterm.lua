@@ -1,3 +1,5 @@
+local isWindows = (vim.fn.has("win32") == 1)
+
 local M = {
   "akinsho/toggleterm.nvim",
   commit = "19aad0f41f47affbba1274f05e3c067e6d718e1e",
@@ -18,10 +20,11 @@ function M.config()
     shading_factor = 2,
     start_in_insert = true,
     insert_mappings = true,
+    terminal_mappings = true,
     persist_size = true,
-    direction = "float",
+    direction = "horizontal",
     close_on_exit = true,
-    shell = vim.o.shell,
+    shell = isWindows and "pwsh" or "fish",
     float_opts = {
       border = "curved",
     },
@@ -29,11 +32,7 @@ function M.config()
 
   function _G.set_terminal_keymaps()
     local opts = { noremap = true }
-    -- vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts)
-    vim.api.nvim_buf_set_keymap(0, "t", "<C-h>", [[<C-\><C-n><C-W>h]], opts)
-    vim.api.nvim_buf_set_keymap(0, "t", "<C-j>", [[<C-\><C-n><C-W>j]], opts)
-    vim.api.nvim_buf_set_keymap(0, "t", "<C-k>", [[<C-\><C-n><C-W>k]], opts)
-    vim.api.nvim_buf_set_keymap(0, "t", "<C-l>", [[<C-\><C-n><C-W>l]], opts)
+    vim.api.nvim_buf_set_keymap(0, "t", "jk", [[<C-\><C-n>]], opts)
   end
 
   vim.cmd "autocmd! TermOpen term://* lua set_terminal_keymaps()"
@@ -43,6 +42,21 @@ function M.config()
 
   function _LAZYGIT_TOGGLE()
     lazygit:toggle()
+  end
+
+  local pwsh = Terminal:new({ cmd = "pwsh", hidden = true })
+
+  function _PWSH_TOGGLE()
+  	pwsh:toggle()
+  end
+
+  local mingw64 = Terminal:new({
+  	cmd = "C:/msys64/msys2_shell.cmd -defterm -here -no-start -use-full-path -mingw64 -shell fish",
+  	hidden = true,
+  })
+
+  function _MINGW64_TOGGLE()
+  	mingw64:toggle()
   end
 end
 

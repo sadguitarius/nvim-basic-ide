@@ -14,6 +14,17 @@ function M.config()
     return vim.fn.winwidth(0) > 80
   end
 
+  
+  local function scstatus()
+    if vim.bo.filetype == "supercollider" then
+      local stat = vim.fn["scnvim#statusline#server_status"]()
+  	stat = stat:gsub("%%", "%%%%")
+  	return stat
+    else
+  	return ""
+    end
+  end
+
   local diagnostics = {
     "diagnostics",
     sources = { "nvim_diagnostic" },
@@ -26,7 +37,7 @@ function M.config()
   local diff = {
     "diff",
     colored = false,
-    symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
+    symbols = { added = "+", modified = "~", removed = "-" }, -- changes diff symbols
     cond = hide_in_width,
   }
 
@@ -49,15 +60,15 @@ function M.config()
       icons_enabled = true,
       theme = "auto",
       component_separators = { left = "", right = "" },
-      section_separators = { left = "", right = "" },
+      section_separators = { left = "", right = "" },
       disabled_filetypes = { "alpha", "dashboard" },
       always_divide_middle = true,
     },
     sections = {
       lualine_a = { "mode" },
       lualine_b = { "branch" },
-      lualine_c = { diagnostics },
-      lualine_x = { diff, spaces, "encoding", filetype },
+      lualine_c = { "filename", diagnostics, scstatus },
+      lualine_x = { diff, spaces, "encoding", "fileformat", filetype },
       lualine_y = { location },
       lualine_z = { "progress" },
     },

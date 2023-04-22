@@ -1,5 +1,5 @@
 vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "qf", "help", "man", "lspinfo", "spectre_panel" },
+  pattern = { "qf", "help", "man", "lspinfo", "spectre_panel", "lir", "checkhealth", "help.supercollider" },
   callback = function()
     vim.cmd [[
       nnoremap <silent> <buffer> q :close<CR> 
@@ -50,4 +50,12 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
       vim.cmd "IlluminatePauseBuf"
     end
   end,
+})
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+	pattern = { "lua" },
+	callback = function()
+		vim.opt_local.shiftwidth = 2
+		vim.opt_local.tabstop = 2
+	end,
 })

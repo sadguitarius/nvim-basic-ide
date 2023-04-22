@@ -22,6 +22,11 @@ function M.config()
   null_ls.setup {
     debug = false,
     sources = {
+
+      on_init = function(new_client, _)
+        new_client.offset_encoding = 'utf-16'
+      end,
+
       formatting.prettier.with {
         extra_filetypes = { "toml" },
         extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
