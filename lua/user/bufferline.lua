@@ -14,8 +14,13 @@ function M.config()
     options = {
       close_command = "Bdelete! %d",       -- can be a string | function, see "Mouse actions"
       right_mouse_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
+      custom_filter = function(buf_number, buf_numbers)
+        if vim.bo[buf_number].filetype ~= "scnvim" then
+          return true
+        end
+      end,
       offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
-      separator_style = "thin",            -- | "thick" | "thin" | { 'any', 'any' },
+      separator_style = "thin", -- | "thick" | "thin" | { 'any', 'any' },
     },
     highlights = {
       fill = {

@@ -20,7 +20,7 @@ vim.opt.swapfile = false                        -- creates a swapfile
 vim.opt.termguicolors = true                    -- set term gui colors (most terminals support this)
 vim.opt.timeout = true
 vim.opt.timeoutlen = 300                        -- time to wait for a mapped sequence to complete (in milliseconds)
---[[ vim.opt.undofile = true                         -- enable persistent undo ]]
+vim.opt.undofile = true                         -- enable persistent undo
 vim.opt.updatetime = 300                        -- faster completion (4000ms default)
 vim.opt.writebackup = false                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 vim.opt.expandtab = true                        -- convert tabs to spaces
@@ -51,13 +51,3 @@ vim.opt.shellquote = ''
 vim.opt.shellxquote = ''
 vim.opt.foldmethod = 'indent'
 vim.opt.foldenable = false
-
---python interpreter path
-if vim.fn.has('win32') == 1 then
-    vim.g.python3_host_prog = 'C:/Users/sadguitarius/.local/opt/mambaforge/envs/nvim/python.exe'
-elseif vim.loop.os_uname().sysname == 'Linux' then
-    vim.g.python3_host_prog = '/home/sadguitarius/.local/opt/mambaforge/envs/nvim/bin/python'
-else
-    vim.g.python_host_prog = '/Users/justbecuz/Developer/miniconda3/envs/neovim-python2/bin/python'
-    vim.g.python3_host_prog = '/Users/justbecuz/Developer/miniconda3/envs/neovim-python3/bin/python3'
-end

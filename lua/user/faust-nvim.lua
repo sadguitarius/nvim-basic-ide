@@ -1,6 +1,6 @@
 local M = {
   "madskjeldgaard/faust-nvim",
-  event = "VimEnter",
+  ft = "faust",
 	dependencies = {
     {
 	    "vijaymarupudi/nvim-fzf",

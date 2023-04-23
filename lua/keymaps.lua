@@ -31,8 +31,6 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
-keymap("n", "]b", ":bnext<CR>", opts)
-keymap("n", "[b", ":bprevious<CR>", opts)
 
 -- Clear highlights
 keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
@@ -60,7 +58,7 @@ keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
 -- Telescope
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
-keymap("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
+keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 keymap("n", "<leader>fk", ":Telescope keymaps<CR>", opts)
@@ -102,20 +100,14 @@ keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opt
 
 
 -- set cwd to current buffer dir
-keymap("n", "<Leader>d", ":cd %:h<CR>", opts)
+keymap("n", "<Leader>c", ":cd %:h<CR>", opts)
 
 -- Terminal
--- keymap("n", "<leader>tp", "<cmd>lua _PWSH_TOGGLE()<cr>", opts)
--- keymap("n", "<leader>tm", "<cmd>lua _MINGW64_TOGGLE()<cr>", opts)
--- keymap("n", "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", opts)
--- keymap("n", "<leader>th", "<cmd>ToggleTerm size=10 direction=horizontal<cr>", opts)
--- keymap("n", "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<cr>", opts)
+keymap("n", "<leader>tp", "<cmd>lua _PWSH_TOGGLE()<cr>", opts)
+keymap("n", "<leader>tm", "<cmd>lua _MINGW64_TOGGLE()<cr>", opts)
+keymap("n", "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", opts)
+keymap("n", "<leader>th", "<cmd>ToggleTerm size=10 direction=horizontal<cr>", opts)
+keymap("n", "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<cr>", opts)
 
 -- Edit Config
 keymap("n", "<leader>,", "<cmd>e $MYVIMRC <CR>", opts)
-
---SCNvim
-keymap("n", "<leader>Ss", "<cmd>SCNvimStart<cr>", opts)
-keymap("n", "<leader>SS", "<cmd>SCNvimStop<cr>", opts)
-keymap("n", "<leader>Sc", "<cmd>SCNvimRecompile<cr>", opts)
-keymap("n", "<leader>St", "<cmd>SCNvimTags<cr>", opts)

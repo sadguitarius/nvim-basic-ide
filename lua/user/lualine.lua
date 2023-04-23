@@ -14,7 +14,6 @@ function M.config()
     return vim.fn.winwidth(0) > 80
   end
 
-  
   local function scstatus()
     if vim.bo.filetype == "supercollider" then
       local stat = vim.fn["scnvim#statusline#server_status"]()

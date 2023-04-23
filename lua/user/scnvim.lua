@@ -1,6 +1,6 @@
 local M = {
   "davidgranstrom/scnvim",
-  event = "VimEnter",
+  ft = "supercollider"
 }
 
 function M.config()
@@ -124,6 +124,12 @@ function M.config()
 
   -- UNCOMMENT IF SNIPPETS DON'T WORK
   require("luasnip").add_snippets("supercollider", require("scnvim/utils").get_snippets())
+
+  --SCNvim
+  vim.keymap.set("n", "<leader>Ss", "<cmd>SCNvimStart<cr>", { silent = true })
+  vim.keymap.set("n", "<leader>SS", "<cmd>SCNvimStop<cr>", { silent = true })
+  vim.keymap.set("n", "<leader>Sc", "<cmd>SCNvimRecompile<cr>", { silent = true })
+  vim.keymap.set("n", "<leader>St", "<cmd>SCNvimTags<cr>", { silent = true })
 end
 
 return M
