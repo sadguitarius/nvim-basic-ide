@@ -20,11 +20,11 @@ function M.config()
         end
       end,
       offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
-      separator_style = "thin", -- | "thick" | "thin" | { 'any', 'any' },
+      separator_style = "thin",            -- | "thick" | "thin" | { 'any', 'any' },
     },
     highlights = {
       fill = {
-        fg = { attribute = "fg", highlight = "#ff0000" },
+        fg = { attribute = "fg", highlight = "TabLine" },
         bg = { attribute = "bg", highlight = "TabLine" },
       },
       background = {
