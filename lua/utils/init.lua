@@ -11,6 +11,7 @@ M.servers = {
   "yamlls",
   "vimls",
   "clangd",
+--  "julials",
 }
 
 return M
