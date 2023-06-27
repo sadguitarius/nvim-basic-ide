@@ -51,3 +51,4 @@ vim.opt.shellquote = ''
 vim.opt.shellxquote = ''
 vim.opt.foldmethod = 'indent'
 vim.opt.foldenable = false
+vim.opt.background = 'light'
