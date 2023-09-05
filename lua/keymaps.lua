@@ -111,3 +111,6 @@ keymap("n", "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<cr>", opts
 
 -- Edit Config
 keymap("n", "<leader>,", "<cmd>e $MYVIMRC <CR>", opts)
+
+keymap("n", "<C-ScrollWheelUp>", "3zh", opts)
+keymap("n", "<C-ScrollWheelDown>", "3zl", opts)
