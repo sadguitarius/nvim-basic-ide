@@ -33,7 +33,6 @@ keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Clear highlights
-keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
 keymap("n", "<Esc>", ":nohlsearch<CR>", opts)
 
 -- Close buffers
@@ -66,6 +65,7 @@ keymap("n", "<leader>fr", ":Telescope oldfiles<CR>", opts)
 keymap("n", "<leader>fh", ":Telescope help_tags<CR>", opts)
 keymap("n", '<leader>f"', ":Telescope registers<CR>", opts)
 keymap("n", "<leader>fc", ":Telescope commands<CR>", opts)
+keymap("n", "<leader>fs", ":Telescope scdoc<CR>", opts)
 
 -- Git
 keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
@@ -79,10 +79,6 @@ keymap("n", "<leader>gs", "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", opts)
 keymap("n", "<leader>gu", "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>", opts)
 keymap("n", "<leader>go", "<cmd>Telescope git_status<cr>", opts)
 keymap("n", "<leader>gd", "<cmd>Gitsigns diffthis HEAD<cr>", opts)
-
--- Comment
-keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", opts)
-keymap("x", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", opts)
 
 -- DAP
 keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
@@ -104,6 +100,7 @@ keymap("n", "<Leader>c", ":cd %:h<CR>", opts)
 
 -- Terminal
 keymap("n", "<leader>tp", "<cmd>lua _PWSH_TOGGLE()<cr>", opts)
+keymap("n", "<leader>td", "<cmd>lua _PWSH_DEV_TOGGLE()<cr>", opts)
 keymap("n", "<leader>tm", "<cmd>lua _MINGW64_TOGGLE()<cr>", opts)
 keymap("n", "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", opts)
 keymap("n", "<leader>th", "<cmd>ToggleTerm size=10 direction=horizontal<cr>", opts)

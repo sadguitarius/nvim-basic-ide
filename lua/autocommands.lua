@@ -9,6 +9,15 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 })
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "scnvim" },
+  callback = function()
+    vim.cmd [[
+      set nobuflisted 
+    ]]
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "gitcommit", "markdown" },
   callback = function()
     vim.opt_local.wrap = true

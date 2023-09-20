@@ -1,6 +1,11 @@
 local M = {
   "davidgranstrom/scnvim",
-  ft = "supercollider"
+  ft = "supercollider",
+  dependencies = {
+    {
+      "davidgranstrom/telescope-scdoc.nvim",
+    }
+  }
 }
 
 function M.config()
@@ -40,7 +45,7 @@ function M.config()
     documentation = {
       cmd = isWindows and "C:\\Users\\sadguitarius\\scoop\\shims\\pandoc.exe" or "pandoc",
       horizontal = true,
-      direction = "top",
+      direction = "bot",
       keymaps = true,
     },
     postwin = {
@@ -124,6 +129,9 @@ function M.config()
 
   -- UNCOMMENT IF SNIPPETS DON'T WORK
   require("luasnip").add_snippets("supercollider", require("scnvim/utils").get_snippets())
+
+  require'telescope'.load_extension('scdoc')
+
 
   --SCNvim
   vim.keymap.set("n", "<leader>Ss", "<cmd>SCNvimStart<cr>", { silent = true })

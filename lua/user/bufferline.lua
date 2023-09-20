@@ -14,6 +14,7 @@ function M.config()
     options = {
       close_command = "Bdelete! %d",       -- can be a string | function, see "Mouse actions"
       right_mouse_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
+      buffer_close_icon = '󰅖',
       custom_filter = function(buf_number, buf_numbers)
         if vim.bo[buf_number].filetype ~= "scnvim" then
           return true

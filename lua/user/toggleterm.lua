@@ -50,6 +50,15 @@ function M.config()
   	pwsh:toggle()
   end
 
+  local pwsh_dev = Terminal:new({
+    cmd = [[pwsh.exe -noe -c "& 'C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\Launch-VsDevShell.ps1' -Arch arm64 -HostArch amd64 -SkipAutomaticLocation"]],
+    hidden = true
+  })
+
+  function _PWSH_DEV_TOGGLE()
+  	pwsh_dev:toggle()
+  end
+
   local mingw64 = Terminal:new({
   	cmd = "C:/msys64/msys2_shell.cmd -defterm -here -no-start -use-full-path -mingw64 -shell fish",
   	hidden = true,
