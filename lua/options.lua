@@ -52,3 +52,6 @@ vim.opt.shellxquote = ''
 vim.opt.foldmethod = 'indent'
 vim.opt.foldenable = false
 vim.opt.background = 'light'
+
+-- Globals
+vim.g.mapleader = " "
