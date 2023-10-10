@@ -17,6 +17,14 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   end,
 })
 
+-- vim.api.nvim_create_autocmd({ "FileType" }, {
+--   pattern = { "help.supercollider" },
+--   callback = function()
+--     local win = vim.api.nvim_get_current_win()
+--     vim.api.nvim_win_set_option(win, 'winhighlight', 'Normal:Normal')
+--   end,
+-- })
+
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "gitcommit", "markdown" },
   callback = function()

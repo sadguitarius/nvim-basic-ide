@@ -11,6 +11,9 @@ M.servers = {
   "yamlls",
   "vimls",
   "clangd",
+  "rust_analyzer",
+  "neocmake",
+  "powershell_es"
 --  "julials",
 }
 
