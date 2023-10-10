@@ -71,9 +71,7 @@ M.opts =
         location = location,
       }
     end
-  end,
-    ---Function to call after (un)comment
-    post_hook = nil,
+  end
 }
 
 return M
