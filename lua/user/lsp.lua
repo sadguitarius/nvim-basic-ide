@@ -34,7 +34,7 @@ function M.config()
     keymap(bufnr, "n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", { noremap = true, silent = true, desc = "Rename" })
     keymap(bufnr, "n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { noremap = true, silent = true, desc = "Signature help" })
     keymap(bufnr, "n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", { noremap = true, silent = true, desc = "Setloclist" })
-    keymap(bufnr, "n", "<leader>lh", "<cmd>ClangdSwitchSourceHeader<CR>")
+    keymap(bufnr, "n", "<leader>lh", "<cmd>ClangdSwitchSourceHeader<CR>", {noremap = true, silent = true, desc = "Clangd Switch Source/Header"})
   end
 
   local lspconfig = require "lspconfig"

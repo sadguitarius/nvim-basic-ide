@@ -43,7 +43,7 @@ vim.opt.whichwrap:append "<,>,[,],h,l"          -- keys allowed to move to the p
 vim.opt.iskeyword:append "-"                    -- treats words with `-` as single words
 vim.opt.formatoptions:remove { "c", "r", "o" }  -- This is a sequence of letters which describes how automatic formatting is to be done
 vim.opt.linebreak = true
-vim.opt.shell = isWindows and 'powershell' or 'bash'                          -- this whole shell mess is a fix for pwsh on windows
+-- vim.opt.shell = isWindows and 'powershell' or 'bash'                          -- this whole shell mess is a fix for pwsh on windows
 vim.opt.shellcmdflag = isWindows and '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;' or '-c'
 vim.opt.shellredir = isWindows and '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode' or '>%s 2>&1'
 vim.opt.shellpipe = isWindows and '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode' or '>%s 2>&1'
@@ -52,6 +52,12 @@ vim.opt.shellxquote = ''
 vim.opt.foldmethod = 'indent'
 vim.opt.foldenable = false
 vim.opt.background = 'light'
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 -- Globals
 vim.g.mapleader = " "
+
+if vim.g.neovide then
+  vim.opt.guifont = "Blexmono Nerd Font:h11"
+end

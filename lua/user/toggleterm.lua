@@ -38,21 +38,21 @@ function M.config()
   vim.cmd "autocmd! TermOpen term://* lua set_terminal_keymaps()"
 
   local Terminal = require("toggleterm.terminal").Terminal
-  local lazygit = Terminal:new { cmd = "lazygit", hidden = true }
+  local lazygit = Terminal:new { cmd = "lazygit", hidden = false }
 
   function _LAZYGIT_TOGGLE()
     lazygit:toggle()
   end
 
-  local pwsh = Terminal:new({ cmd = "pwsh", hidden = true })
+  local pwsh = Terminal:new({ cmd = "/C pwsh", hidden = false })
 
   function _PWSH_TOGGLE()
   	pwsh:toggle()
   end
 
   local pwsh_dev = Terminal:new({
-    cmd = [[pwsh.exe -noe -c "& 'C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\Launch-VsDevShell.ps1' -Arch arm64 -HostArch amd64 -SkipAutomaticLocation"]],
-    hidden = true
+    cmd = [[/C pwsh.exe -noe -c "& 'C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\Launch-VsDevShell.ps1' -Arch arm64 -HostArch amd64 -SkipAutomaticLocation"]],
+    hidden = false
   })
 
   function _PWSH_DEV_TOGGLE()
@@ -60,8 +60,8 @@ function M.config()
   end
 
   local mingw64 = Terminal:new({
-  	cmd = "C:/msys64/msys2_shell.cmd -defterm -here -no-start -use-full-path -mingw64 -shell fish",
-  	hidden = true,
+  	cmd = "/C C:/msys64/msys2_shell.cmd -defterm -here -no-start -use-full-path -mingw64 -shell fish",
+  	hidden = false,
   })
 
   function _MINGW64_TOGGLE()
