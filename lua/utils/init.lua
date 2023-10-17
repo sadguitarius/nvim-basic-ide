@@ -13,8 +13,11 @@ M.servers = {
   "clangd",
   "rust_analyzer",
   "neocmake",
-  "powershell_es"
 --  "julials",
 }
+
+if vim.fn.has("win32") == 1 then
+  table.insert(M.servers, "powershell_es")
+end
 
 return M
