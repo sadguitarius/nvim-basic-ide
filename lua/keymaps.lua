@@ -26,7 +26,7 @@ maps.n["<S-l>"] = { "<cmd>bnext<cr>", desc = "Next buffer" }
 maps.n["<S-h>"] = { "<cmd>bprevious<cr>", desc = "Previous buffer" }
 
 -- Clear highlights
-maps.n["<Esc>"] = { "<cmd>nohsearch<cr>", desc = "Clear highlights" }
+maps.n["<Esc>"] = { "<cmd>nohlsearch<cr>", desc = "Clear highlights" }
 
 -- Close buffer
 maps.n["<S-q>"] = { "<cmd>Bdelete!<cr>", desc = "Close buffer" }
