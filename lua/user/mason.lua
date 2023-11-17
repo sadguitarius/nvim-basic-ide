@@ -19,6 +19,9 @@ M.servers = {
   "yamlls",
   "marksman",
   "tailwindcss",
+  "clangd",
+  "rust_analyzer",
+  "neocmake",
 }
 
 function M.config()
