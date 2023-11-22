@@ -95,7 +95,7 @@ function M.config()
     winbar = {
       enabled = true,
       name_formatter = function(term) --  term: Terminal
-        return term.count
+        return term.name
       end,
     },
   }
@@ -122,32 +122,32 @@ function M.config()
     vim.api.nvim_buf_set_keymap(0, "t", "jk", [[<C-\><C-n>]], opts)
   end
 
-  local Terminal = require("toggleterm.terminal").Terminal
-  local lazygit = Terminal:new { cmd = "lazygit", hidden = false }
-
-  local pwsh = Terminal:new({ cmd = "/C pwsh", hidden = false })
-
-  function _PWSH_TOGGLE()
-  	pwsh:toggle()
-  end
-
-  local pwsh_dev = Terminal:new({
-    cmd = [[/C pwsh.exe -noe -c "& 'C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\Launch-VsDevShell.ps1' -Arch arm64 -HostArch amd64 -SkipAutomaticLocation"]],
-    hidden = false
-  })
-
-  function _PWSH_DEV_TOGGLE()
-  	pwsh_dev:toggle()
-  end
-
-  local mingw64 = Terminal:new({
-  	cmd = "/C C:/msys64/msys2_shell.cmd -defterm -here -no-start -use-full-path -mingw64 -shell fish",
-  	hidden = false,
-  })
-
-  function _MINGW64_TOGGLE()
-  	mingw64:toggle()
-  end
+--   local Terminal = require("toggleterm.terminal").Terminal
+--   local lazygit = Terminal:new { cmd = "lazygit", hidden = false }
+--
+--   local pwsh = Terminal:new({ cmd = "/C pwsh", hidden = false })
+--
+--   function _PWSH_TOGGLE()
+--   	pwsh:toggle()
+--   end
+--
+--   local pwsh_dev = Terminal:new({
+--     cmd = [[/C pwsh.exe -noe -c "& 'C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\Launch-VsDevShell.ps1' -Arch arm64 -HostArch amd64 -SkipAutomaticLocation"]],
+--     hidden = false
+--   })
+--
+--   function _PWSH_DEV_TOGGLE()
+--   	pwsh_dev:toggle()
+--   end
+--
+--   local mingw64 = Terminal:new({
+--   	cmd = "/C C:/msys64/msys2_shell.cmd -defterm -here -no-start -use-full-path -mingw64 -shell fish",
+--   	hidden = false,
+--   })
+--
+--   function _MINGW64_TOGGLE()
+--   	mingw64:toggle()
+--   end
 end
 
 return M

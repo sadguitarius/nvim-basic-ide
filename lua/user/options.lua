@@ -54,6 +54,7 @@ vim.cmd [[set iskeyword+=-]]
 vim.g.netrw_banner = 0
 vim.g.netrw_mouse = 2
 
+vim.opt.shell = isWindows and 'pwsh' or 'fish'
 vim.opt.shellcmdflag = isWindows and '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;' or '-c'
 vim.opt.shellredir = isWindows and '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode' or '>%s 2>&1'
 vim.opt.shellpipe = isWindows and '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode' or '>%s 2>&1'
